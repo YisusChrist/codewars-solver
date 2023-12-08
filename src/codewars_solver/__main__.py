@@ -1,0 +1,73 @@
+"""
+Main module of the package.
+
+This module contains the main function of the package.
+
+Functions:
+    main() -> int: Main function.
+
+TODO:
+    * Add support for multiple source paths.
+"""
+from codewars_api_py import CodewarsAPI
+from requests import RequestException
+from rich import print
+from rich.traceback import install
+
+from .cli import exit_session
+from .consts import DEBUG
+from .consts import EXIT_SUCCESS
+from .consts import PROFILE
+from .logs import logger
+
+
+def main() -> int:
+    """
+    Main function
+    """
+    install(show_locals=DEBUG)
+    # args = get_parsed_args()
+
+    logger.info("Start of session")
+
+    # Initialize the Codewars API wrapper
+    codewars_api = CodewarsAPI()
+
+    challenge_id = input("Introduce the challenge id: ")
+
+    try:
+        challenge = codewars_api.get_code_challenge(challenge_id)
+    except RequestException as e:
+        print(e)
+        exit_session(EXIT_SUCCESS)
+
+    print(challenge)
+
+    text = f"""# Challenge: {challenge['name']}
+
+**Difficulty:** {challenge['rank']['name']}
+
+**Reference:** {challenge['url']}
+
+## Description
+
+{challenge['description']}
+"""
+
+    with open("data/README.md", "w", encoding="utf-8") as f:
+        f.write(text)
+
+    exit_session(EXIT_SUCCESS)
+
+
+if __name__ == "__main__":
+    # Enable rich error formatting in debug mode
+    if DEBUG:
+        print("[yellow]Debug mode is enabled[/yellow]")
+    if PROFILE:
+        import cProfile
+
+        print("[yellow]Profiling is enabled[/yellow]")
+        cProfile.run("main()")
+    else:
+        main()

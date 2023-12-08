@@ -1,0 +1,77 @@
+[tool.poetry]
+name = "codewars-solver"
+version = "0.1.1"
+description = ""
+license = "GPL-3.0-only"
+authors = ["Alejandro González Momblán <agelrenorenardo@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/yisuschrist/codewars-solver"
+
+
+[tool.poetry.urls]
+Changelog = "https://github.com/yisuschrist/codewars-solver/releases"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+codewars-api-py = "^0.1.1"
+platformdirs = "^4.1.0"
+requests = "^2.31.0"
+rich = "13.5.2"
+rich-argparse-plus = "0.3.1.4"
+tqdm = "^4.66.1"
+markdownify = "^0.11.6"
+
+[tool.poetry.group.dev.dependencies]
+bandit = "^1.7.5"
+commitizen = "^3.10.0"
+monkeytype = "^23.3.0"
+mypy = "^1.5.1"
+pdoc = "^14.1.0"
+pre-commit = ">=2.16.0"
+pre-commit-hooks = ">=4.1.0"
+pylint = "^2.17.7"
+pytest = "^6.2.5"
+pyupgrade = ">=2.29.1"
+safety = ">=1.10.3"
+sphinx = "^7.2.6"
+sphinx-autobuild = "^2021.3.14"
+black = "^23.11.0"
+flake8 = "^6.1.0"
+
+[tool.poetry.scripts]
+codewars-solver = "codewars_solver.__main__:main"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+tests = ["tests", "*/tests"]
+
+[tool.coverage.run]
+branch = true
+source = ["hypermodern_python", "tests"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 100
+
+[tool.isort]
+profile = "black"
+force_single_line = true
+lines_after_imports = 2
+
+[tool.mypy]
+strict = true
+warn_unreachable = true
+pretty = true
+show_column_numbers = true
+show_error_codes = true
+show_error_context = true
+
+[tool.pylint]
+disable = [
+   "W0622",  # Redefining built-in 'format' (redefined-builtin)
+   "C0103",  # Constant name doesn't conform to UPPER_CASE naming style (invalid-name)
+]
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
