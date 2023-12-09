@@ -9,6 +9,7 @@ Functions:
 TODO:
     * Add support for multiple source paths.
 """
+from pathlib import Path
 from codewars_api_py import CodewarsAPI
 from requests import RequestException
 from rich import print
@@ -54,8 +55,18 @@ def main() -> int:
 {challenge['description']}
 """
 
-    with open("data/README.md", "w", encoding="utf-8") as f:
+    # Find the folder to save the challenge
+    difficulty_folder = Path("out") / challenge["rank"]["name"].replace(" ", "")
+    out_folder = difficulty_folder / challenge["slug"]
+
+    # Create the folder if it doesn't exist
+    Path.mkdir(out_folder, exist_ok=True, parents=True)
+
+    with open(f"{out_folder}/README.md", "w", encoding="utf-8") as f:
         f.write(text)
+
+    with open(f"{out_folder}/solution.py", "w", encoding="utf-8") as f:
+        f.write("")
 
     exit_session(EXIT_SUCCESS)
 

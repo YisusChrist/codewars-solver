@@ -33,31 +33,34 @@
 
 <br>
 
-![Alt](https://repobeats.axiom.co/api/embed/f6c38a416187bebbb4b7eb86c9a37fd23372f27b.svg "Repobeats analytics image")
+![Alt](https://repobeats.axiom.co/api/embed/35569e3c284b5b783757493946440a1c6e080da1.svg "Repobeats analytics image")
 
 <br>
 
-codewars-solver (InstaLoader transfer) is a versatile Python application that streamlines the management of Instagram profile downloads using the [Instaloader](https://github.com/instaloader/instaloader) tool. With this program, you can effortlessly:
+codewars-solver is a Python package that allows you to solve [Codewars](https://www.codewars.com/) katas from the command line and automatically submit them to the platform. Once the kata is solved, the program will automatically create a new file with the solution in the appropriate directory. It also allows you to upload the solution to your personal GitHub repository to keep track of your progress, share your solutions with the community and store your collection of solved katas.
 
--   Transfer downloaded profiles to another destination when they are ready
--   Filter and move only the completed profiles, leaving incomplete downloads untouched.
+All the functionalities can be described in the following steps:
 
-Iltansfer is compatible with Windows, Linux and macOS, and it works seamlessly with Python 3.6 and above. Simplify your Instagram profile management with codewars-solver today!
+-   [ ] 1. The program will ask you to enter your `Codewars username` and `API key`. This information will be stored in a configuration file in your system's configuration directory. This information is required to submit the solutions to the platform.
+
+-   [x] 2. The program will ask you to select the programming language you want to use to solve the kata. The program will then create a new file with the kata's name in the appropriate directory. The file will contain the kata's description and a template with the function to be implemented.
+
+-   [ ] 3. Once the kata is solved, the program will automatically submit the solution to the platform and create a new file with the solution in the appropriate directory. The program will also ask you if you want to upload the solution to your personal GitHub repository. If you choose to do so, the program will create a new branch with the solution and open a pull request to merge the branch with the main branch.
 
 <br>
 
 <details>
 <summary>Table of Contents</summary>
 
--   [Requirements](#requirements)
--   [Installation](#installation)
-    -   [Manual installation](#manual-installation)
--   [Execution](#execution)
-    -   [Example of execution](#example-of-execution)
--   [Contributors](#contributors)
-    -   [How do I contribute to codewars-solver?](#how-do-i-contribute-to-codewars-solver)
--   [License](#license)
--   [Credits](#credits)
+- [Requirements](#requirements)
+- [Installation](#installation)
+  - [Manual installation](#manual-installation)
+- [Execution](#execution)
+    - [Example of execution](#example-of-execution)
+- [Contributors](#contributors)
+  - [How do I contribute to codewars-solver?](#how-do-i-contribute-to-codewars-solver)
+- [License](#license)
+- [Credits](#credits)
 
 </details>
 
