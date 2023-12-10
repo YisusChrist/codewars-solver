@@ -14,32 +14,29 @@ Changelog = "https://github.com/yisuschrist/codewars-solver/releases"
 [tool.poetry.dependencies]
 python = "^3.11"
 codewars-api-py = "^1.0.1"
-markdownify = "^0.11.6"
 platformdirs = "^4.1.0"
 requests = "^2.31.0"
 rich = "13.5.2"
 rich-argparse-plus = "0.3.1.4"
-tqdm = "^4.66.1"
-
-[tool.poetry.group.dev]
-optional = true
 
 [tool.poetry.group.dev.dependencies]
 bandit = "^1.7.5"
+black = "^23.11.0"
 commitizen = "^3.10.0"
+flake8 = "^6.1.0"
 monkeytype = "^23.3.0"
 mypy = "^1.5.1"
+nox = "^2023.4.22"
+nox-poetry = "^1.0.3"
 pdoc = "^14.1.0"
 pre-commit = ">=2.16.0"
 pre-commit-hooks = ">=4.1.0"
-pylint = "^2.17.7"
-pytest = "^6.2.5"
+pylint = "^3.0.2"
+pytest = "^7.4.3"
 pyupgrade = ">=2.29.1"
 safety = ">=1.10.3"
 sphinx = "^7.2.6"
 sphinx-autobuild = "^2021.3.14"
-black = "^23.11.0"
-flake8 = "^6.1.0"
 
 [tool.poetry.scripts]
 codewars-solver = "codewars_solver.__main__:main"
@@ -50,7 +47,7 @@ tests = ["tests", "*/tests"]
 
 [tool.coverage.run]
 branch = true
-source = ["hypermodern_python", "tests"]
+source = ["codewars_solver", "tests"]
 
 [tool.coverage.report]
 show_missing = true
@@ -68,6 +65,7 @@ pretty = true
 show_column_numbers = true
 show_error_codes = true
 show_error_context = true
+implicit_reexport = true
 
 [tool.pylint]
 disable = [
