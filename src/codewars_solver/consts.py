@@ -15,8 +15,10 @@ DATA_PATH = user_data_dir(appname=NAME, ensure_exists=True)
 LOG_PATH = user_log_dir(appname=NAME, ensure_exists=True)
 LOG_FILE = Path(LOG_PATH).resolve() / f"{NAME}.log"
 
-DEFAULT_SRC_PATH = Path(DATA_PATH).resolve() / "instagram"
-DEFAULT_DEST_PATH = Path(DATA_PATH).resolve() / "move"
+MAX_TIMEOUT = 5
+
+DEFAULT_SRC_PATH = Path(DATA_PATH).resolve()
+DEFAULT_DEST_PATH = Path(DATA_PATH).resolve()
 
 EXIT_SUCCESS = 0
 EXIT_FAILURE = 1
