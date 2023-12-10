@@ -3,13 +3,16 @@ import sys
 from argparse import ArgumentParser
 from argparse import Namespace
 
+import requests
 from rich import print
 from rich_argparse_plus import RichHelpFormatterPlus
 
+from . import GITHUB
 from . import __desc__ as DESC
 from . import __version__ as VERSION
 from .consts import EXIT_FAILURE
 from .consts import LOG_PATH
+from .consts import MAX_TIMEOUT
 from .consts import NAME
 from .logs import logger
 
@@ -21,6 +24,8 @@ def get_parsed_args() -> Namespace:
     Returns:
         The parsed arguments as a Namespace object.
     """
+    logger.debug("Parsing command-line arguments")
+
     RichHelpFormatterPlus.choose_theme("grey_area")
 
     parser = ArgumentParser(
@@ -94,6 +99,7 @@ def exit_session(exit_value: int) -> None:
         exit_value (int): The POSIX exit value to exit with.
     """
     logger.info("End of session")
+
     # Check if the exit_value is a valid POSIX exit value
     if not 0 <= exit_value <= 255:
         exit_value = EXIT_FAILURE
@@ -106,3 +112,30 @@ def exit_session(exit_value: int) -> None:
 
     # Exit the program with the given exit value
     sys.exit(exit_value)
+
+
+def check_updates() -> None:
+    """
+    Check if there is a newer version of the script available in the GitHub repository.
+    """
+    logger.debug("Checking for updates...")
+
+    project = GITHUB.split("https://github.com/")[1]
+    repo_url = f"https://api.github.com/repos/{project}/releases/latest"
+
+    try:
+        response = requests.get(repo_url, timeout=MAX_TIMEOUT)
+        response.raise_for_status()
+
+        latest_version = response.json()["tag_name"]
+        if latest_version != VERSION:
+            print(
+                f"\n[yellow]Newer version of the script available: {latest_version}.\n"
+                "Please consider updating your version.[/yellow]"
+            )
+
+            logger.warning("Newer version of the script available: %s", latest_version)
+        else:
+            logger.info("Script is at the latest version")
+    except requests.exceptions.RequestException:
+        logger.error("Could not check for updates")

@@ -10,29 +10,34 @@ TODO:
     * Add support for multiple source paths.
 """
 from pathlib import Path
+
 from codewars_api_py import CodewarsAPI
 from requests import RequestException
 from rich import print
 from rich.traceback import install
 
+from .cli import check_updates
 from .cli import exit_session
+from .cli import get_parsed_args
 from .consts import DEBUG
 from .consts import EXIT_SUCCESS
 from .consts import PROFILE
 from .logs import logger
 
 
-def main() -> int:
+def main() -> None:
     """
     Main function
     """
     install(show_locals=DEBUG)
-    # args = get_parsed_args()
+    get_parsed_args()  # args = get_parsed_args()
 
     logger.info("Start of session")
 
+    check_updates()
+
     # Initialize the Codewars API wrapper
-    codewars_api = CodewarsAPI()
+    codewars_api = CodewarsAPI()  # type: ignore
 
     challenge_id = input("Introduce the challenge id: ")
 
@@ -41,6 +46,12 @@ def main() -> int:
     except RequestException as e:
         print(e)
         exit_session(EXIT_SUCCESS)
+        return
+
+    if not challenge:
+        print("Challenge not found")
+        exit_session(EXIT_SUCCESS)
+        return
 
     print(challenge)
 
