@@ -62,6 +62,10 @@ def input_valid_path(prompt: str, default_path: Path) -> Path:
 def create_config_file(interactive: bool = False) -> None:
     """
     Create the configuration file.
+
+    Args:
+        interactive (bool): Whether to prompt the user for the paths.
+            Defaults to False.
     """
     logger.debug("Creating configuration file at %s", CONFIG_FILE)
 
