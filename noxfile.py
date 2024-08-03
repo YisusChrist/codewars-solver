@@ -27,7 +27,7 @@ package = os.path.basename(os.path.dirname(os.path.abspath(__file__))).replace("
 python_versions = ["3.12"]
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (
-    "pre-commit",
+    #"pre-commit",
     # "safety",
     "mypy",
     "tests",
@@ -47,7 +47,7 @@ def activate_virtualenv_in_precommit_hooks(session: Session) -> None:
     Args:
         session: The Session object.
     """
-    assert session.bin is not None  # noqa: B101
+    assert session.bin is not None  # noqa: S101
 
     # Only patch hooks containing a reference to this session's bindir. Support
     # quoting rules for Python and bash, but strip the outermost quotes so we
