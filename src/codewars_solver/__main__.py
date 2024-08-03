@@ -12,8 +12,8 @@ TODO:
 
 from pathlib import Path
 
-from codewars_api_py import CodewarsAPI
-from requests import RequestException
+from codewars_api_py import CodewarsAPI  # type: ignore
+from requests import RequestException  # type: ignore
 from rich import print
 from rich.traceback import install
 
@@ -43,7 +43,7 @@ def main() -> None:
     # - https://www.codewars.com/kata/546f922b54af40e1e90001da
 
     # Initialize the Codewars API wrapper
-    codewars_api = CodewarsAPI()  # type: ignore
+    codewars_api = CodewarsAPI()
 
     challenge_id = input("Introduce the challenge id: ")
 

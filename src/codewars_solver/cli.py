@@ -5,9 +5,9 @@ from argparse import ArgumentParser
 from argparse import Namespace
 from typing import NoReturn
 
-import requests
+import requests  # type: ignore
 from rich import print
-from rich_argparse_plus import RichHelpFormatterPlus
+from rich_argparse_plus import RichHelpFormatterPlus  # type: ignore
 
 from .consts import EXIT_FAILURE
 from .consts import GITHUB
