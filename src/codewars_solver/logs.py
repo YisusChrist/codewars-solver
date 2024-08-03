@@ -3,11 +3,11 @@ import logging
 
 from .consts import DEBUG
 from .consts import LOG_FILE
-from .consts import NAME
+from .consts import PACKAGE
 
 
 # Create a logger instance
-logger = logging.getLogger(NAME)
+logger = logging.getLogger(PACKAGE)
 
 # Define log handlers
 log_handlers = [logging.FileHandler(LOG_FILE)]

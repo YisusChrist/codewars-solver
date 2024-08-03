@@ -9,6 +9,7 @@ Functions:
 TODO:
     * Add support for multiple source paths.
 """
+
 from pathlib import Path
 
 from codewars_api_py import CodewarsAPI
@@ -36,6 +37,11 @@ def main() -> None:
 
     check_updates()
 
+    # TODO: Pending katas:
+    # - https://www.codewars.com/kata/52742f58faf5485cae000b9a
+    # - https://www.codewars.com/kata/563b662a59afc2b5120000c6
+    # - https://www.codewars.com/kata/546f922b54af40e1e90001da
+
     # Initialize the Codewars API wrapper
     codewars_api = CodewarsAPI()  # type: ignore
 
@@ -46,16 +52,15 @@ def main() -> None:
     except RequestException as e:
         print(e)
         exit_session(EXIT_SUCCESS)
-        return
 
     if not challenge:
         print("Challenge not found")
         exit_session(EXIT_SUCCESS)
-        return
 
     print(challenge)
 
-    text = f"""# Challenge: {challenge['name']}
+    text: str = f"""\
+# Challenge: {challenge['name']}
 
 **Difficulty:** {challenge['rank']['name']}
 

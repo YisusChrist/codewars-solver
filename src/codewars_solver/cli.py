@@ -1,19 +1,21 @@
 """Command-line interface for the project."""
+
 import sys
 from argparse import ArgumentParser
 from argparse import Namespace
+from typing import NoReturn
 
 import requests
 from rich import print
 from rich_argparse_plus import RichHelpFormatterPlus
 
-from . import GITHUB
-from . import __desc__ as DESC
-from . import __version__ as VERSION
 from .consts import EXIT_FAILURE
+from .consts import GITHUB
 from .consts import LOG_PATH
 from .consts import MAX_TIMEOUT
-from .consts import NAME
+from .consts import PACKAGE
+from .consts import __desc__ as DESC
+from .consts import __version__ as VERSION
 from .logs import logger
 
 
@@ -85,13 +87,13 @@ def get_parsed_args() -> Namespace:
         "--version",
         action="version",
         help="Show version number and exit.",
-        version=f"[argparse.prog]{NAME}[/] version [i]{VERSION}[/]",
+        version=f"[argparse.prog]{PACKAGE}[/] version [i]{VERSION}[/]",
     )
 
     return parser.parse_args()
 
 
-def exit_session(exit_value: int) -> None:
+def exit_session(exit_value: int) -> NoReturn:
     """
     Exit the program with the given exit value.
 

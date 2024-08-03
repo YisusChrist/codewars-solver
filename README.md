@@ -37,15 +37,15 @@
 
 <br>
 
-codewars-solver is a Python package that allows you to solve [Codewars](https://www.codewars.com/) katas from the command line and automatically submit them to the platform. Once the kata is solved, the program will automatically create a new file with the solution in the appropriate directory. It also allows you to upload the solution to your personal GitHub repository to keep track of your progress, share your solutions with the community and store your collection of solved katas.
+`codewars-solver` is a Python package that allows you to solve [Codewars](https://www.codewars.com) katas from the command line and automatically submit them to the platform. Once the kata is solved, the program will automatically create a new file with the solution in the appropriate directory. It also allows you to upload the solution to your personal GitHub repository to keep track of your progress, share your solutions with the community and store your collection of solved katas.
 
 All the functionalities can be described in the following steps:
 
--   [ ] 1. The program will ask you to enter your `Codewars username` and `API key`. This information will be stored in a configuration file in your system's configuration directory. This information is required to submit the solutions to the platform.
+- [ ] 1. The program will ask you to enter your `Codewars username` and `API key`. This information will be stored in a configuration file in your system's configuration directory. This information is required to submit the solutions to the platform.
 
--   [x] 2. The program will ask you to select the programming language you want to use to solve the kata. The program will then create a new file with the kata's name in the appropriate directory. The file will contain the kata's description and a template with the function to be implemented.
+- [x] 2. The program will ask you to select the programming language you want to use to solve the kata. The program will then create a new file with the kata's name in the appropriate directory. The file will contain the kata's description and a template with the function to be implemented.
 
--   [ ] 3. Once the kata is solved, the program will automatically submit the solution to the platform and create a new file with the solution in the appropriate directory. The program will also ask you if you want to upload the solution to your personal GitHub repository. If you choose to do so, the program will create a new branch with the solution and open a pull request to merge the branch with the main branch.
+- [ ] 3. Once the kata is solved, the program will automatically submit the solution to the platform and create a new file with the solution in the appropriate directory. The program will also ask you if you want to upload the solution to your personal GitHub repository. If you choose to do so, the program will create a new branch with the solution and open a pull request to merge the branch with the main branch.
 
 <br>
 
@@ -56,7 +56,7 @@ All the functionalities can be described in the following steps:
 - [Installation](#installation)
   - [Manual installation](#manual-installation)
 - [Execution](#execution)
-    - [Example of execution](#example-of-execution)
+  - [Example of execution](#example-of-execution)
 - [Contributors](#contributors)
   - [How do I contribute to codewars-solver?](#how-do-i-contribute-to-codewars-solver)
 - [License](#license)
@@ -68,26 +68,28 @@ All the functionalities can be described in the following steps:
 
 Here's a breakdown of the packages needed and their versions:
 
--   [platformdirs](https://pypi.org/project/platformdirs) - 3.10.0
--   [rich](https://pypi.org/project/rich) - 13.5.2
--   [rich-argparse-plus](https://pypi.org/project/rich-argparse-plus) - 0.3.1.4
--   [tqdm](https://pypi.org/project/tqdm) - 4.66.1
+- [platformdirs](https://pypi.org/project/platformdirs) - 3.10.0
+- [rich](https://pypi.org/project/rich) - 13.5.2
+- [rich-argparse-plus](https://pypi.org/project/rich-argparse-plus) - 0.3.1.4
+- [tqdm](https://pypi.org/project/tqdm) - 4.66.1
 
 These packages can be installed using the following command:
 
 This will install all the packages and their dependencies listed in the requirements.txt file. Make sure you have Python and pip installed on your system before running this command.
 
-> Note: The software has been developed and tested using Python 3.11.4. The minimum required version to run the software is Python 3.6. Although the software may work with previous versions, it is not guaranteed.
+> [!NOTE]
+> The software has been developed and tested using Python 3.11.4. The minimum required version to run the software is Python 3.6. Although the software may work with previous versions, it is not guaranteed.
 
 ## Installation
 
-codewars-solver can be installed easily as a Pypi package. Just run the following command:
+`codewars-solver` can be installed easily as a Pypi package. Just run the following command:
 
 ```bash
 pip3 install codewars-solver
 ```
 
-> For best practices and to avoid potential conflicts with your global Python environment, it is strongly recommended to install this program within a virtual environment. Avoid using the --user option for global installations. We highly recommend using [pipx](https://pypi.org/project/pipx/) for a safe and isolated installation experience. Therefore, the appropriate command to install codewars-solver would be:
+> [!IMPORTANT]
+> For best practices and to avoid potential conflicts with your global Python environment, it is strongly recommended to install this program within a virtual environment. Avoid using the --user option for global installations. We highly recommend using [pipx](https://pypi.org/project/pipx) for a safe and isolated installation experience. Therefore, the appropriate command to install codewars-solver would be:
 >
 > ```bash
 > pipx install codewars-solver
@@ -97,26 +99,27 @@ pip3 install codewars-solver
 
 If you prefer to install the program manually, follow these steps:
 
-> Note: This will install the version from the latest commit, not the latest release.
+> [!WARNING]
+> This will install the version from the latest commit, not the latest release.
 
 1. Download the latest version of [codewars-solver](https://github.com/yisuschrist/codewars-solver) from this repository:
 
-    ```bash
-    git clone https://github.com/yisuschrist/codewars-solver
-    cd codewars-solver
-    ```
+   ```bash
+   git clone https://github.com/yisuschrist/codewars-solver
+   cd codewars-solver
+   ```
 
 2. Install the dependencies:
 
-    ```bash
-    poetry install --no-dev
-    ```
+   ```bash
+   poetry install --no-dev
+   ```
 
 3. Run the following commands to install codewars-solver in your `/usr/bin/` directory:
 
-    ```bash
-    poetry run codewars-solver
-    ```
+   ```bash
+   poetry run codewars-solver
+   ```
 
 The program can now be ran from a terminal with the `codewars-solver` command.
 
@@ -152,7 +155,7 @@ See [Contributing](.github/CONTRIBUTING.md) for more details.
 
 ## License
 
-codewars-solver is released under the [GPL-3.0 License](https://opensource.org/licenses/GPL-3.0).
+`codewars-solver` is released under the [GPL-3.0 License](https://opensource.org/licenses/GPL-3.0).
 
 ## Credits
 
