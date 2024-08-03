@@ -27,7 +27,7 @@ package = os.path.basename(os.path.dirname(os.path.abspath(__file__))).replace("
 python_versions = ["3.12"]
 nox.needs_version = ">= 2021.6.6"
 nox.options.sessions = (
-    #"pre-commit",
+    # "pre-commit",
     # "safety",
     "mypy",
     "tests",
