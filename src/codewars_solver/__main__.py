@@ -37,7 +37,7 @@ def main() -> None:
 
     check_updates()
 
-    # TODO: Pending katas:
+    # Pending katas:
     # - https://www.codewars.com/kata/52742f58faf5485cae000b9a
     # - https://www.codewars.com/kata/563b662a59afc2b5120000c6
     # - https://www.codewars.com/kata/546f922b54af40e1e90001da

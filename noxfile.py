@@ -137,6 +137,7 @@ def precommit(session: Session) -> None:
         "pep8-naming",
         "pre-commit",
         "pre-commit-hooks",
+        "pylint",
         "pyupgrade",
     )
     session.run("pre-commit", *args)
@@ -144,7 +145,7 @@ def precommit(session: Session) -> None:
         activate_virtualenv_in_precommit_hooks(session)
 
 
-@session(python=python_versions[0])
+@session(python=python_versions[-1])
 def safety(session: Session) -> None:
     """
         Scan dependencies for insecure packages.
