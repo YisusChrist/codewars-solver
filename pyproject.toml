@@ -7,7 +7,6 @@ authors = ["Alejandro González Momblán <agelrenorenardo@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/yisuschrist/codewars-solver"
 
-
 [tool.poetry.urls]
 Changelog = "https://github.com/yisuschrist/codewars-solver/releases"
 
@@ -37,6 +36,7 @@ pyupgrade = ">=2.29.1"
 safety = ">=1.10.3"
 sphinx = "^7.2.6"
 sphinx-autobuild = "^2021.3.14"
+darglint = "^1.8.1"
 
 [tool.poetry.scripts]
 codewars-solver = "codewars_solver.__main__:main"
