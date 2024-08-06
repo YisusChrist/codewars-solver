@@ -54,8 +54,10 @@ All the functionalities can be described in the following steps:
 
 - [Requirements](#requirements)
 - [Installation](#installation)
+  - [From PyPI](#from-pypi)
   - [Manual installation](#manual-installation)
-- [Execution](#execution)
+  - [Uninstall](#uninstall)
+- [Usage](#usage)
   - [Example of execution](#example-of-execution)
 - [Contributors](#contributors)
   - [How do I contribute to codewars-solver?](#how-do-i-contribute-to-codewars-solver)
@@ -73,27 +75,27 @@ Here's a breakdown of the packages needed and their versions:
 - [rich-argparse-plus](https://pypi.org/project/rich-argparse-plus) - 0.3.1.4
 - [tqdm](https://pypi.org/project/tqdm) - 4.66.1
 
-These packages can be installed using the following command:
-
-This will install all the packages and their dependencies listed in the requirements.txt file. Make sure you have Python and pip installed on your system before running this command.
-
 > [!NOTE]
 > The software has been developed and tested using Python 3.11.4. The minimum required version to run the software is Python 3.6. Although the software may work with previous versions, it is not guaranteed.
 
 ## Installation
 
-`codewars-solver` can be installed easily as a Pypi package. Just run the following command:
+### From PyPI
+
+`codewars-solver` can be installed easily as a PyPI package. Just run the following command:
 
 ```bash
 pip3 install codewars-solver
 ```
 
 > [!IMPORTANT]
-> For best practices and to avoid potential conflicts with your global Python environment, it is strongly recommended to install this program within a virtual environment. Avoid using the --user option for global installations. We highly recommend using [pipx](https://pypi.org/project/pipx) for a safe and isolated installation experience. Therefore, the appropriate command to install codewars-solver would be:
+> For best practices and to avoid potential conflicts with your global Python environment, it is strongly recommended to install this program within a virtual environment. Avoid using the --user option for global installations. We highly recommend using [pipx](https://pypi.org/project/pipx) for a safe and isolated installation experience. Therefore, the appropriate command to install `codewars-solver` would be:
 >
 > ```bash
 > pipx install codewars-solver
 > ```
+
+The program can now be ran from a terminal with the `codewars-solver` command.
 
 ### Manual installation
 
@@ -112,7 +114,7 @@ If you prefer to install the program manually, follow these steps:
 2. Install the dependencies:
 
    ```bash
-   poetry install --no-dev
+   poetry install --only main
    ```
 
 3. Run the following commands to install codewars-solver in your `/usr/bin/` directory:
@@ -123,7 +125,15 @@ If you prefer to install the program manually, follow these steps:
 
 The program can now be ran from a terminal with the `codewars-solver` command.
 
-## Execution
+### Uninstall
+
+If you installed it from PyPI, you can use the following command:
+
+```bash
+pipx uninstall codewars-solver
+```
+
+## Usage
 
 To run the `codewars-solver` script, you can use the following command:
 
@@ -137,7 +147,7 @@ where `[OPTIONS]` are the command line options described below:
 
 ```
 
-#### Example of execution
+### Example of execution
 
 ## Contributors
 
