@@ -1,4 +1,5 @@
 """Configuration module for the project."""
+
 import tkinter as tk
 from argparse import Namespace
 from configparser import ConfigParser
