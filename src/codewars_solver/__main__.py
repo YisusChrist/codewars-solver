@@ -13,16 +13,18 @@ TODO:
 from pathlib import Path
 
 from codewars_api_py import CodewarsAPI  # type: ignore
+from core_helpers.updates import check_updates
 from requests import RequestException  # type: ignore
 from rich import print
 from rich.traceback import install
 
-from .cli import check_updates
 from .cli import exit_session
 from .cli import get_parsed_args
 from .consts import DEBUG
 from .consts import EXIT_SUCCESS
+from .consts import GITHUB
 from .consts import PROFILE
+from .consts import __version__ as VERSION
 from .logs import logger
 
 
@@ -35,7 +37,7 @@ def main() -> None:
 
     logger.info("Start of session")
 
-    check_updates()
+    check_updates(GITHUB, VERSION)
 
     # Pending katas:
     # - https://www.codewars.com/kata/52742f58faf5485cae000b9a
