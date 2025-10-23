@@ -7,14 +7,16 @@ from pathlib import Path
 from tkinter import filedialog
 from typing import Tuple
 
+from core_helpers.logs import logger
 from rich import print
 
-from .cli import exit_session
-from .consts import CONFIG_FILE
-from .consts import DEFAULT_DEST_PATH
-from .consts import DEFAULT_SRC_PATH
-from .consts import EXIT_FAILURE
-from .logs import logger
+from codewars_solver.cli import exit_session
+from codewars_solver.consts import (
+    CONFIG_FILE,
+    DEFAULT_DEST_PATH,
+    DEFAULT_SRC_PATH,
+    EXIT_FAILURE,
+)
 
 
 def get_path_from_dialog(title: str) -> Path:

@@ -10,34 +10,33 @@ TODO:
     * Add support for multiple source paths.
 """
 
+from argparse import Namespace
 from pathlib import Path
 
 from codewars_api_py import CodewarsAPI  # type: ignore
+from core_helpers.logs import logger
 from core_helpers.updates import check_updates
 from requests import RequestException  # type: ignore
 from rich import print
 from rich.traceback import install
 
-from .cli import exit_session
-from .cli import get_parsed_args
-from .consts import DEBUG
-from .consts import EXIT_SUCCESS
-from .consts import GITHUB
-from .consts import PROFILE
-from .consts import __version__ as VERSION
-from .logs import logger
+from codewars_solver.cli import exit_session, get_parsed_args
+from codewars_solver.consts import EXIT_SUCCESS, GITHUB, LOG_FILE, PACKAGE
+from codewars_solver.consts import __version__ as VERSION
 
 
 def main() -> None:
     """
     Main function
     """
-    install(show_locals=DEBUG)
-    get_parsed_args()  # args = get_parsed_args()
+    args: Namespace = get_parsed_args()
+    install(show_locals=args.debug)
+    logger.setup_logger(PACKAGE, LOG_FILE, args.debug, args.verbose)
 
     logger.info("Start of session")
 
-    check_updates(GITHUB, VERSION)
+    if GITHUB:
+        check_updates(GITHUB, VERSION)
 
     # Pending katas:
     # - https://www.codewars.com/kata/52742f58faf5485cae000b9a
@@ -90,13 +89,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    # Enable rich error formatting in debug mode
-    if DEBUG:
-        print("[yellow]Debug mode is enabled[/yellow]")
-    if PROFILE:
-        import cProfile
-
-        print("[yellow]Profiling is enabled[/yellow]")
-        cProfile.run("main()")
-    else:
-        main()
+    main()

@@ -4,16 +4,13 @@ import sys
 from argparse import Namespace
 from typing import NoReturn
 
-from core_helpers.cli import ArgparseColorThemes
-from core_helpers.cli import setup_parser
+from core_helpers.cli import ArgparseColorThemes, setup_parser
+from core_helpers.logs import logger
 from rich import print
 
-from .consts import EXIT_FAILURE
-from .consts import LOG_PATH
-from .consts import PACKAGE
-from .consts import __desc__ as DESC
-from .consts import __version__ as VERSION
-from .logs import logger
+from codewars_solver.consts import EXIT_FAILURE, LOG_PATH, PACKAGE
+from codewars_solver.consts import __desc__ as DESC
+from codewars_solver.consts import __version__ as VERSION
 
 
 def get_parsed_args() -> Namespace:
@@ -23,8 +20,6 @@ def get_parsed_args() -> Namespace:
     Returns:
         The parsed arguments as a Namespace object.
     """
-    logger.debug("Parsing command-line arguments")
-
     parser, g_main = setup_parser(
         PACKAGE,
         DESC,

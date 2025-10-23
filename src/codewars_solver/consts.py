@@ -2,23 +2,26 @@
 
 from pathlib import Path
 
-from core_helpers.xdg_paths import get_user_path
-
+from core_helpers.xdg_paths import PathType, get_user_path
 
 try:
     from importlib import metadata
 except ImportError:  # for Python < 3.8
     import importlib_metadata as metadata  # type: ignore
 
+metadata_info = metadata.metadata(__package__ or __name__)
 __version__ = metadata.version(__package__ or __name__)
-__desc__ = metadata.metadata(__package__ or __name__)["Summary"]
-GITHUB = metadata.metadata(__package__ or __name__)["Home-page"]
-PACKAGE = metadata.metadata(__package__ or __name__)["Name"]
+__desc__ = metadata_info["Summary"]
+PACKAGE = metadata_info["Name"]
+GITHUB = (
+    metadata_info["Home-page"] or metadata_info["Project-URL"].split(",")[1].strip()
+)
+AUTHOR = metadata_info["Author"]
 
-CONFIG_PATH: Path = get_user_path(PACKAGE, "config")
+CONFIG_PATH: Path = get_user_path(PACKAGE, PathType.CONFIG)
 CONFIG_FILE: Path = CONFIG_PATH / f"{PACKAGE}.ini"
-DATA_PATH: Path = get_user_path(PACKAGE, "data")
-LOG_PATH: Path = get_user_path(PACKAGE, "log")
+DATA_PATH: Path = get_user_path(PACKAGE, PathType.DATA)
+LOG_PATH: Path = get_user_path(PACKAGE, PathType.LOG)
 LOG_FILE: Path = LOG_PATH / f"{PACKAGE}.log"
 
 MAX_TIMEOUT = 5
